@@ -101,7 +101,7 @@ while True:
             if p1_board_position == 1 and p2_board_position == 1:
                 pygame.draw.circle(board,(255,0,0),(p1_x_position*100 + 70,p1_y_position*100+30),20)
                 pygame.draw.circle(board,(0,0,255),(p2_x_position*100 + 30,p2_y_position*100+75),20)  
-                pygame.display.update() #updates the display
+                pygame.display.update() 
                 pygame.time.delay(500) #I add a time delay so that the user can watch the players move, otherwise it's too fast
             if p1_board_position < 42:
               #randomizes two dice rolls 
@@ -115,7 +115,6 @@ while True:
                     print("Player 1 has reached the end!")
                     print()
                     p1_end = True
-                #recreates the board for every move, I decided to put this inside both and if and elif statement since otherwise it would update the board and there would be a time delay even when it wasn't neccessary (ex player 1 has already finished and player 2 is still looping through the code)
                     create_board()
                 elif p1_board_position < 42: #if the player hasn't reached the end
                     index = -1          #this just to set the counter up  
@@ -140,7 +139,7 @@ while True:
                         print("Player 1 has reached the end!")
                         print()
                         p1_end = True
-                        #recreates the board for every move, I decided to put this inside both and if and elif statement since otherwise it would update the board and there would be a time delay even when it wasn't neccessary (ex player 1 has already finished and player 2 is still looping through the code)
+                        #I decided to put this inside both and if and elif statement since otherwise it would update the board and there would be a time delay even when it wasn't neccessary (ex player 1 has already finished and player 2 is still looping through the code)
                         create_board()
                     elif p1_board_position < 42:
                         index = -1
@@ -148,7 +147,7 @@ while True:
                             index = index + 1
                             if i == p1_board_position:
                               (p1_x_position,p1_y_position) = board_number_coordinates[index]
-                        #Recreates the board every move so we can see the players move while also deleting the last position
+                        
                         create_board()
 #this mostly repeats the same block as code as above except for player 2 now
             if p2_board_position < 42:
@@ -170,7 +169,6 @@ while True:
                         index = index + 1 
                         if i == p2_board_position: 
                             (p2_x_position,p2_y_position) = board_number_coordinates[index] 
-                #Recreates the board every move so we can see the players move while also deleting the last position
                     create_board()
             if p2_board_position < 42:
                 while p2_dice_1/p2_dice_2 == 1: 
@@ -186,7 +184,6 @@ while True:
                         print("Player 2 has reached the end!")
                         print()
                         p2_end = True
-                        #recreates the board for every move, I decided to put this inside both and if and elif statement since otherwise it would update the board and there would be a time delay even when it wasn't neccessary (ex player 1 has already finished and player 2 is still looping through the code)
                         create_board()                
         if event.type == pygame.QUIT: #when the user clicks on the x, it closes the tap and ends the program
             quit()
